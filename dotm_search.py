@@ -5,7 +5,8 @@
 Given a directory path, search all files in the path for a given text string
 within the 'word/document.xml' section of a MSWord .dotm file.
 """
-# __author__ = Enrique_Galindo
+__author__ = "Enrique_Galindo"
+
 import zipfile
 import os
 import argparse
@@ -16,12 +17,12 @@ def create_parser():
     """
     parser = argparse.ArgumentParser(description="searching a given directory for a specific text")
     parser.add_argument("text", help="The text being searched for within each file")
-    parser.add_argument("-directory", help="A directory that can be used to search files")
+    parser.add_argument("--dir", help="A directory that can be used to search files")
     return parser
 
 def search(name_space):
     search_text = name_space.text
-    search_path = name_space.directory
+    search_path = name_space.dir
     file_paths = os.listdir(search_path)
     searched_count = 0
     found_count = 0
